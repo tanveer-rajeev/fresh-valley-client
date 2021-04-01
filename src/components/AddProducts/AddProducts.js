@@ -13,9 +13,12 @@ const AddProducts = () => {
             name: data.name,
             price: data.price,
             weight: data.weight,
-            imageURL: imageURL
+            imageURL: imageURL,
+            quantity: 1,
+            time: new Date().toLocaleString()
         };
-        const url = `http://localhost:5000/addProducts`;
+
+        const url = `http://localhost:5000/addProduct`;
         fetch(url, {
             method: 'POST',
             headers: {

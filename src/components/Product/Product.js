@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router';
@@ -9,8 +10,9 @@ const Product = (props) => {
 
     const history =useHistory();
 
-    const showDetails = id => {
-        const url = `checkout/${id}`;
+    const showDetails = () => {
+        const url = `checkout/${_id}`;
+
         history.push(url);
     }
     
@@ -23,7 +25,7 @@ const Product = (props) => {
                         <Card.Title>name: {name}</Card.Title>
                         <Card.Title>price: {price}</Card.Title>
                         <Card.Title>weight: {weight}</Card.Title>
-                <Button id="teamBtn" onClick={() => showDetails(_id)}>Buy Now </Button>
+                <Button id="teamBtn" onClick={() => showDetails()}>Buy Now </Button>
             </Card.Body>
         </Card>
         </div>
