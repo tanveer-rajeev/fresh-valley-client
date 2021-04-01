@@ -10,54 +10,59 @@ import Checkout from "./components/Checkout/Checkout";
 import ManageProduct from "./components/Admin/ManageProduct";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Order from "./components/Order/Order";
+import SideNavBar from "./components/SideNavBar/SideNavBar";
+import DisplayOrder from "./components/DisplayOrder/DisplayOrder";
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
 
           <Route exact path="/">
-            <Header/>
-            <Home/>
+            <Header />
+            <Home />
           </Route>
 
           <Route path="/home">
-            <Header/>
-            <Home/>
+            <Header />
+            <Home />
           </Route>
 
           <Route path="/login">
-            <Header/>
-            <Login/>
+            <Header />
+            <Login />
           </Route>
 
           <Route path="/admin">
-          <Header/>
-            <Admin/>
+            <Header />
+            <SideNavBar />
+            <Admin />
           </Route>
 
           <Route path="/manageProduct">
-          <Header/>
-            <ManageProduct/>
+            <Header />
+            <SideNavBar />
+            <ManageProduct />
           </Route>
 
-          <Route path="/addProduct">
-            <Header/>
-            <AddProducts/>
-          </Route>
-          
+          {/* <Route path="/displayOrder">
+            <Header />
+            <DisplayOrder/>
+          </Route> */}
+
           <PrivateRoute path="/checkout/:id">
-            <Header/>
-            <Checkout/>
+            <Header />
+            <Checkout />
           </PrivateRoute>
 
-          <Route path="order/:id">
-            <Header/>
-            <Order/>
+          <Route path="/order">
+            <Header />
+            <Order />
           </Route>
 
         </Switch>

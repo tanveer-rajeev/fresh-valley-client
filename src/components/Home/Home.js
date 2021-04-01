@@ -5,6 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Product from '../Product/Product';
 
+
 const Home = () => {
     const icon = <FontAwesomeIcon icon={faSearch} />
 
@@ -17,6 +18,8 @@ const Home = () => {
     },[])
     
 
+
+
     return (
 
         <div className="container text-center main-div-class">
@@ -28,9 +31,12 @@ const Home = () => {
 
             <div className='row'>
                 {
-                    products.map((product) => <Product product={product} key={ product._id }/>)
+                    products.map((product) => <Product product={product} key={product._id} />)
                 }
 
+                {/* {
+                    show && <Order cart={cart}/>
+                } */}
             </div>
 
         </div>

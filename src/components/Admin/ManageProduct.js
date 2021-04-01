@@ -6,17 +6,17 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-       axios.get('http://localhost:5000/')
-        .then((response) => setProducts(response.data))
-        .catch((error) => console.log(error)) 
-    },[])
-    
+        axios.get('http://localhost:5000/')
+            .then((response) => setProducts(response.data))
+            .catch((error) => console.log(error))
+    }, [])
+
     return (
-        <div>
+        <>
             {
-                products.map((product) => <DisplayProductDetails product={product} key={ product._id}/>)
+                products.map((product) => <DisplayProductDetails product={product} key={product._id} />)
             }
-        </div>
+        </>
     );
 };
 

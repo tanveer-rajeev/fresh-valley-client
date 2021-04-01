@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+
+
 const Admin = () => {
 
     const { register, handleSubmit } = useForm();
@@ -12,9 +13,11 @@ const Admin = () => {
             name: data.name,
             price: data.price,
             weight: data.weight,
-            imageURL: imageURL
+            imageURL: imageURL,
+            quantity: 1,
+            time: new Date().toLocaleString()
         };
-        const url = `http://localhost:5000/addProducts`;
+        const url = `http://localhost:5000/addProduct`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -45,10 +48,9 @@ const Admin = () => {
     return (
         <div className=" row container">
             <div className="col-md-3">
-                <Link to="/admin" >Admin</Link>
-                <br/>
-                <Link to="/manageProduct" >Manage Product</Link>
+                
             </div>
+
             <div className="col-md-9">
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <h1>Product name</h1>
