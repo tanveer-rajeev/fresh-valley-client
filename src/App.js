@@ -39,10 +39,12 @@ function App() {
           <Header/>
             <Admin/>
           </Route>
+
           <Route path="/manageProduct">
           <Header/>
             <ManageProduct/>
           </Route>
+
           <Route path="/addProduct">
             <Header/>
             <AddProducts/>
@@ -53,7 +55,7 @@ function App() {
             <Checkout/>
           </PrivateRoute>
 
-          <Route path="/order/:id">
+          <Route path="order/:id">
             <Header/>
             <Order/>
           </Route>
