@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-
+import { Table } from 'react-bootstrap';
 
 const Admin = () => {
 
@@ -46,29 +46,71 @@ const Admin = () => {
     }
 
     return (
-        <div className=" row container">
-            <div className="col-md-3">
-                
-            </div>
+        // <div className=" row container">
+        //     <div className="col-md-3"></div>
+        //     <div className="col-md-9">
+        //         <form onSubmit={handleSubmit(onSubmit)}>
+        //         <h1>Product name</h1>
+        //         <input name="name" placeholder="Enter name" ref={register} />
+        //         <br />
+        //         <h1>Add Price</h1>
+        //         <input name="price" placeholder="Enter price" type="text" ref={register} />
+        //         <br />
+        //         <h1>Weight</h1>
+        //         <input name="weight" placeholder="Enter weight" type="text" ref={register} />
+        //         <br />
+        //         <h1>Add photo</h1>
+        //         <input name="exampleRequired" type="file" onChange={handleImageUpload} />
+        //         <input type="submit" />
+        //     </form>
+        //     </div>
+        // </div>
+        <div className="container text-center">
+            <div className="row">
+                {/* <div className="col-md-3 sidebarClass">
+                    <SideNavBar />
+                </div> */}
 
-            <div className="col-md-9">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <h1>Product name</h1>
-                <input name="name" placeholder="Enter name" ref={register} />
-                <br />
-                <h1>Add Price</h1>
-                <input name="price" placeholder="Enter price" type="text" ref={register} />
-                <br />
-                <h1>Weight</h1>
-                <input name="weight" placeholder="Enter weight" type="text" ref={register} />
-                <br />
-                <h1>Add photo</h1>
-                <input name="exampleRequired" type="file" onChange={handleImageUpload} />
-                <input type="submit" />
-            </form>
-            </div>
+                <div className="container">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Table striped bordered hover variant="dark">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input name="name" placeholder="Enter name" ref={register} />
+                                    </td>
+                                    <td>
+                                        <input name="weight" placeholder="Enter weight" type="text" ref={register} />
+                                    </td>
+                                </tr>
+                            </tbody>
 
-            
+                            <thead>
+                                <tr>
+                                    <th>Add Price</th>
+                                    <th>Add Photo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <input name="price" placeholder="Enter price" type="text" ref={register} /> </td>
+                                    <td> <input name="exampleRequired" type="file" onChange={handleImageUpload} /> </td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td> <input className="submitButtonClass" type="submit" /></td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {  useParams } from 'react-router';
 import Order from '../Order/Order';
+import { Button } from '@material-ui/core';
+import { Table } from 'react-bootstrap';
 
 const Checkout = () => {
     const { id } = useParams();
@@ -41,21 +43,66 @@ const Checkout = () => {
     }, [id])
 
     return (
+        // <div>
+        //     {
+        //     !checkOrder &&
+        //      <div>
+        //         <h1>{productDetails.name}</h1>
+        //         <h1>{productDetails.price}</h1>
+        //         <h1>1</h1>
+        //         <h1>Total:  {productDetails.price}</h1>
+        //         <button onClick={handleCheckout}>Checkout</button>
+        //     </div>   
+        //     }
+            
+        //     {
+        //         checkOrder &&
+        //         <Order product={ productDetails}/>
+        //     }
+        // </div>
+
         <div>
             {
-            !checkOrder &&
-             <div>
-                <h1>{productDetails.name}</h1>
-                <h1>{productDetails.price}</h1>
-                <h1>1</h1>
-                <h1>Total:  {productDetails.price}</h1>
-                <button onClick={handleCheckout}>Checkout</button>
-            </div>   
+                !checkOrder &&
+                <div className="container mt-5 text-center">
+
+                    <Table striped bordered hover variant="dark">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Item Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>{productDetails.name}</td>
+                                <td>{productDetails.quantity}</td>
+                                <td>${productDetails.price}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Total:  ${productDetails.price}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><Button onClick={handleCheckout} variant="contained" color="primary">Checkout</Button></td>
+                            </tr>
+
+                        </tbody>
+                    </Table>
+                </div>
             }
-            
+
             {
                 checkOrder &&
-                <Order product={ productDetails}/>
+                <Order product={productDetails} />
             }
         </div>
 

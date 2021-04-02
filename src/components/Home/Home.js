@@ -8,22 +8,15 @@ import Product from '../Product/Product';
 
 const Home = () => {
     const icon = <FontAwesomeIcon icon={faSearch} />
-
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
        axios.get('http://localhost:5000/')
         .then((response) => setProducts(response.data))
         .catch((error) => console.log(error)) 
     },[])
-    
-
-
 
     return (
-
         <div className="container text-center main-div-class">
-
             <div className=" container search-div m-2">
                 <input type="text" className="searchTerm text-center" placeholder="Search for products" />
                 <button type="submit" className="searchButton">Search {icon}</button>
